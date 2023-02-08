@@ -1,7 +1,7 @@
 package com.example.abstractroutingdatasource.controller;
 
-import com.example.abstractroutingdatasource.BoardService;
 import com.example.abstractroutingdatasource.ClientDatasource;
+import com.example.abstractroutingdatasource.MonitoringService;
 import com.example.abstractroutingdatasource.config.ClientDatabase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,8 @@ import java.sql.SQLException;
 @RequestMapping("/api/v1")
 public class MainController {
 
-    private final BoardService boardService;
+    private final MonitoringService monitoringService;
+
     @GetMapping("/data/{dbName}")
     public ResponseEntity<?> getData(@PathVariable String dbName) throws SQLException {
         Object result = null;
@@ -27,14 +28,15 @@ public class MainController {
             //System.out.println("MainController getData dbName : "+dbName);
             dataSource = ClientDatasource.getDatasource(ClientDatabase.AGENS);
             //System.out.println("MainController getData dataSource : "+dataSource.getConnection().getClientInfo().keys());
-            result = boardService.getData(dataSource);
+            result = monitoringService.getData(dataSource);
 
         }else{
             dataSource = ClientDatasource.getDatasource(ClientDatabase.MYSQL);
             //System.out.println("MainController getData dataSource : "+dataSource.getConnection().toString());
-            result = boardService.getData(dataSource);
+            result = monitoringService.getData(dataSource);
         }
 
         return ResponseEntity.ok(result);
     }
+
 }

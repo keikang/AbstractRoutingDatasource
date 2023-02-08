@@ -1,6 +1,5 @@
 package com.example.abstractroutingdatasource;
 
-import com.example.abstractroutingdatasource.config.ClientDatabase;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -10,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class BoardService {
+public class MonitoringService {
 
     public Object getData(DataSource dataSource) throws SQLException {
         System.out.println("BoardService getData");
