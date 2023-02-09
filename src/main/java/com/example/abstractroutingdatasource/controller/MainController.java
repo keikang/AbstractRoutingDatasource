@@ -20,19 +20,17 @@ public class MainController {
 
     private final MonitoringService monitoringService;
 
-    @GetMapping("/data/{dbName}")
+    @GetMapping("/datasource/{dbName}")
     public ResponseEntity<?> getData(@PathVariable String dbName) throws SQLException {
         Object result = null;
         DataSource dataSource = null;
         if("agens".equals(dbName)){
             //System.out.println("MainController getData dbName : "+dbName);
             dataSource = ClientDatasource.getDatasource(ClientDatabase.AGENS);
-            //System.out.println("MainController getData dataSource : "+dataSource.getConnection().getClientInfo().keys());
             result = monitoringService.getData(dataSource);
 
         }else{
             dataSource = ClientDatasource.getDatasource(ClientDatabase.MYSQL);
-            //System.out.println("MainController getData dataSource : "+dataSource.getConnection().toString());
             result = monitoringService.getData(dataSource);
         }
 
