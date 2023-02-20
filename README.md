@@ -9,11 +9,11 @@ https://www.baeldung.com/spring-abstract-routing-data-source 파트에 대한 �
       username: user<br/>
       password: password<br/>
 
-  mysql:<br/>
-    driver-class-name: com.mysql.cj.jdbc.Driver<br/>
-    url: jdbc:mysql://127.0.0.1:3306/database<br/>
-    username: user<br/>
-    password: password<br/>
+    mysql:<br/>
+      driver-class-name: com.mysql.cj.jdbc.Driver<br/>
+      url: jdbc:mysql://127.0.0.1:3306/database<br/>
+      username: user<br/>
+      password: password<br/>
     
 2. datasource 하위 레벨(ex> agens, mysql)을 수정했을 경우<br/>
   com.example.abstractroutingdatasource.config.RoutingConfiguration <br/>
