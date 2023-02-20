@@ -16,7 +16,9 @@ https://www.baeldung.com/spring-abstract-routing-data-source 파트에 대한 �
       password: password<br/>
     
 2. datasource 하위 레벨(ex> agens, mysql)을 수정했을 경우<br/>
-  com.example.abstractroutingdatasource.config.RoutingConfiguration <br/>
+  
+  com.example.abstractroutingdatasource.config.RoutingConfiguration 클래스의 <br/>
+  
   @Bean<br/>
   @ConfigurationProperties("datasource.agens")<br/>
   public DataSourceProperties agensDatasourProperties(){<br/>
